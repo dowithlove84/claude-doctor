@@ -10,3 +10,4 @@ export { detectBehavioralSignals } from "./signals/behavioral.js";
 export { generateSuggestions, generateAgentsRules } from "./suggestions.js";
 export { saveModel, loadModel, checkSession, findLatestSession } from "./model.js";
 export { buildSessionTimeline, renderTimeline, renderHealthBar, renderCheckOutput, renderAnalyzeOutput } from "./viz.js";
+export { formatPrivacyNotice, PRIVACY_NOTICE_LINES } from "./privacy.js";
