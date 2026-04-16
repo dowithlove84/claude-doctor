@@ -17,6 +17,7 @@ import {
   renderAnalyzeOutput,
 } from "./viz.js";
 import { generateAgentsRules } from "./suggestions.js";
+import { formatPrivacyNotice } from "./privacy.js";
 
 const SPINNER_FRAMES = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"];
 const DIM = "\x1b[2m";
@@ -62,6 +63,7 @@ program
   .option("--rules", "Output rules for CLAUDE.md / AGENTS.md")
   .option("--save", "Save analysis model to .claude-doctor/")
   .option("--json", "Output as JSON")
+  .option("--privacy", "Show privacy/security information")
   .option(
     "-d, --dir <path>",
     "Project root for .claude-doctor/",
@@ -74,9 +76,15 @@ program
         rules?: boolean;
         save?: boolean;
         json?: boolean;
+        privacy?: boolean;
         dir?: string;
       },
     ) => {
+      if (options.privacy) {
+        console.log(formatPrivacyNotice());
+        return;
+      }
+
       if (sessionArg) {
         const spinner = createSpinner();
         spinner.start("Checking session…");

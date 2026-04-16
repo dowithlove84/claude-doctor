@@ -26,7 +26,16 @@ claude-doctor -p myproject        # filter to a project
 claude-doctor --rules             # generate rules for CLAUDE.md / AGENTS.md
 claude-doctor --save              # save model to .claude-doctor/
 claude-doctor --json              # output as JSON
+claude-doctor --privacy           # print privacy/security behavior
 ```
+
+## Privacy & Security
+
+- No runtime telemetry in the published CLI.
+- Transcript analysis is local-only (reads from your local `~/.claude/` data or a local `.jsonl` path).
+- `--save` writes only to your local `.claude-doctor/` directory.
+- No remote code execution or outbound upload path is implemented by the CLI.
+- For transparency, run `claude-doctor --privacy`.
 
 ## Signals
 
