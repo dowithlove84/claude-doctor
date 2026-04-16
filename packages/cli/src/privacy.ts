@@ -1,4 +1,4 @@
-export const PRIVACY_NOTICE_LINES = [
+const PRIVACY_NOTICE_LINES = [
   "claude-doctor privacy & security",
   "",
   "• No runtime telemetry: this CLI does not send your transcript data to external services.",
